@@ -4,9 +4,16 @@ import com.qa.spaceship.Spaceship;
 public class Runner {
     public static void main(String[] args) throws Exception {
         Spaceship enterprise = new Spaceship("USS Enterprise", 4, true);
-        System.out.println(enterprise.getName());
-        Spaceship milleniumFalcon = new Spaceship();
-        milleniumFalcon.setName("Millenium Falcon");
-        System.out.println(milleniumFalcon.getName());
+        Spaceship milleniumFalcon = new Spaceship("Millenium Falcon", 2, true);
+        Spaceship nostromo = new Spaceship("Nostromo", 4, false);
+
+        Spaceship listOfShips[] = new Spaceship[3];
+        listOfShips[0] = enterprise;
+        listOfShips[1] = milleniumFalcon;
+        listOfShips[2] = nostromo;
+
+        for (int i = 0; i < listOfShips.length; i++) {
+            System.out.println(listOfShips[i].toString());
+        }
     }
 }
