@@ -30,13 +30,17 @@ public class Spaceship {
         this.engines = engines;
     }
 
-    public boolean isWarpDrive() {
+    public boolean warpDrive() {
         return warpDrive;
     }
 
     public void setWarpDrive(boolean warpDrive) {
         this.warpDrive = warpDrive;
     }
-
     
+    @Override
+    public String toString() {
+        String hasWarpDrive = this.warpDrive ? "Yes" : "No";
+        return "Spaceship: [Name: " + this.name + ", Engines: " + this.engines + ", Warp Drive: " + hasWarpDrive + "]";
+    }
 }
