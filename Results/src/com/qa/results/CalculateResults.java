@@ -25,9 +25,8 @@ public class CalculateResults {
         if (apostropheName.substring(apostropheName.length() - 1 ).equals("'"))  {
             return apostropheName += "s";
         }
-        else {
-            return apostropheName += "'s";
-        }
+        
+        return apostropheName;
     }   
         
     private String biologyResults() {
@@ -69,24 +68,14 @@ public class CalculateResults {
     }
 
     private boolean checkExamPassOrFail() {
-        if (calculateBiologyPercentage() < 60 || calculateChemistryPercentage() < 60 || calculatePhysicsPercentage() < 60) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return calculateBiologyPercentage() < 60 || calculateChemistryPercentage() < 60 || calculatePhysicsPercentage() < 60;
     }
-
+    
     private boolean checkOverallPassOrFail() {
-        if(totalPercentage() < 60) {
+        if(totalPercentage() < 60 || !this.checkExamPassOrFail()) {
             return false;
         }
-        else if (totalPercentage() >= 60 && !this.checkExamPassOrFail()) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return true;
     }
 
     private String failedExams() {
