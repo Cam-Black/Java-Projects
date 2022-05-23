@@ -42,14 +42,71 @@ public class CalculateResults {
         return "Physics: " + this.physicsExamScore + " out of " + this.physicsExamTotalMarks;
     }
     
+    private double roundToTwoDecimalPlaces(double num) {
+        return num = Math.floor(num * 100) / 100;
+    }
+
     private double totalPercentage() {
         this.total = biologyExamScore + chemistryExamScore + physicsExamScore;
         double totalMarks = biologyExamTotalMarks + chemistryExamTotalMarks + physicsExamTotalMarks;
         this.percentage = (total * 100) / totalMarks;
-        double twoDecimalPlaces = Math.floor(this.percentage * 100) / 100;
-        return twoDecimalPlaces;
+        return this.roundToTwoDecimalPlaces(this.percentage);
     }
+
+    private double calculateBiologyPercentage() {
+        double bioPercentage = (biologyExamScore * 100.0) / biologyExamTotalMarks;
+        return roundToTwoDecimalPlaces(bioPercentage);
+    }
+
+    private double calculateChemistryPercentage() {
+        double chemPercentage = (chemistryExamScore * 100.0) / chemistryExamTotalMarks;
+        return this.roundToTwoDecimalPlaces(chemPercentage);
+    }
+
+    private double calculatePhysicsPercentage() {
+        double physicsPercentage = (physicsExamScore * 100.0) / physicsExamTotalMarks;
+        return this.roundToTwoDecimalPlaces(physicsPercentage);
+    }
+
+    private boolean checkExamPassOrFail() {
+        if (calculateBiologyPercentage() < 60 || calculateChemistryPercentage() < 60 || calculatePhysicsPercentage() < 60) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    private boolean checkOverallPassOrFail() {
+        if(totalPercentage() < 60) {
+            return false;
+        }
+        else if (totalPercentage() >= 60 && !this.checkExamPassOrFail()) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    private String failedExams() {
+        if (calculateBiologyPercentage() < 60 && calculateChemistryPercentage() >= 60 && calculatePhysicsPercentage() >= 60 || calculateChemistryPercentage() < 60 && calculateBiologyPercentage() >= 60 && calculatePhysicsPercentage() >= 60 || calculatePhysicsPercentage() < 60 && calculateBiologyPercentage() >= 60 && calculateChemistryPercentage() >= 60) {
+            return "You failed 1 Exam!";
+        }
+        else if(calculateBiologyPercentage() < 60 && calculateChemistryPercentage() < 60 && calculatePhysicsPercentage() < 60) {
+            return "You failed all of your exams!";
+        }
+        else {
+            return "You failed 2 exams!";
+        }
+    }
+
     public String displayResults() {
-        return this.addApostrophe() + " results:\n" + this.biologyResults() + "\n" + this.chemistryResults() + "\n" + this.physicsResults() + "\n" + "Overall Percentage: " + this.totalPercentage() + "%";
-    } 
+        if (!checkOverallPassOrFail()) {
+            return this.addApostrophe() + " results:\n" + this.biologyResults() + "\n" + this.chemistryResults() + "\n" + this.physicsResults() + "\n" + "Overall Percentage: " + this.totalPercentage() + "% = Fail\n" + this.failedExams();
+        }
+        else {
+            return this.addApostrophe() + " results:\n" + this.biologyResults() + "\n" + this.chemistryResults() + "\n" + this.physicsResults() + "\n" + "Overall Percentage: " + this.totalPercentage() + "% = Pass";
+        }
+    }
 }
