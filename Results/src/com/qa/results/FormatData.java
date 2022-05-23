@@ -1,16 +1,18 @@
 package com.qa.results;
 
 public class FormatData {
-     private String physics = "Physics";
-     private String chemistry = "Chemistry";
-     private String biology = "Biology";
+     private String physicsExamScore = "Physics";
+     private String chemistryExamScore = "Chemistry";
+     private String biologyExamScore = "Biology";
+     private int physicsExamTotalMarks = 150;
+     private int chemistryExamTotalMarks = 150;
+     private int biologyExamTotalMarks = 150;
      private int total;
      private int percentage;
     
-    public FormatData(String physics, String chemistry, String biology) {
-        this.physics = physics;
-        this.chemistry = chemistry;
-        this.biology = biology;
+    public FormatData(String physicsScore, String chemistryScore, String biologyScore) {
+        this.physicsExamScore = physicsScore;
+        this.chemistryExamScore = chemistryScore;
+        this.biologyExamScore = biologyScore;
     }
-         
 }
