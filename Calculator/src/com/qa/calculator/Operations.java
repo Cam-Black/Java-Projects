@@ -31,6 +31,20 @@ public class Operations {
 
     public String addTwoNumbers() {
         int result = this.num1 + this.num2;
-        return "The sum of " + this.num1 + " and " + this.num2 + " = " + result;
+        return this.num1 + " + " + this.num2 + " = " + result;
+    }
+    public String multiplyTwoNumbers() {
+        int result = this.num1 * this.num2;
+        return this.num1 + " * " + this.num2 + " = " + result;
+    }
+    public String subtractTwoNumbers() {
+        int result = this.num1 - this.num2;
+        return this.num1 + " - " + this.num2 + " = " + result;
+    }
+    public String divideTwoNumbers() {
+        double num1 = this.num1;
+        double num2 = this.num2;
+        double result = num1 / num2;
+        return num1 + " / " + num2 + " = " + result;
     }
 }

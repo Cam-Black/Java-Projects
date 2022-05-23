@@ -7,5 +7,8 @@ public class Calculator {
         Operations myNumbers2 = new Operations(12, 34);
         System.out.println(myNumbers.addTwoNumbers());
         System.out.println(myNumbers2.addTwoNumbers());
+        System.out.println(myNumbers.multiplyTwoNumbers());
+        System.out.println(myNumbers.subtractTwoNumbers());
+        System.out.println(myNumbers.divideTwoNumbers());
     }
 }
