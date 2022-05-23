@@ -26,7 +26,12 @@ public class Operations {
     public String divideTwoNumbers() {
         double num1 = this.num1;
         double num2 = this.num2;
-        double result = num1 / num2;
-        return num1 + " / " + num2 + " = " + result;
+        
+        if (num1 < num2) {
+            return "Cannot divide " + num1 + " by " + num2;
+        }
+        else { 
+            return num1 + " / " + num2 + " = " + num1 / num2;
+        }
     }
 }
