@@ -1,6 +1,6 @@
 package com.qa.results;
 
-public class FormatData {
+public class CalculateResults {
      private String physicsExamScore = "Physics";
      private String chemistryExamScore = "Chemistry";
      private String biologyExamScore = "Biology";
@@ -10,7 +10,7 @@ public class FormatData {
      private int total;
      private int percentage;
     
-    public FormatData(String physicsScore, String chemistryScore, String biologyScore) {
+    public CalculateResults(String physicsScore, String chemistryScore, String biologyScore) {
         this.physicsExamScore = physicsScore;
         this.chemistryExamScore = chemistryScore;
         this.biologyExamScore = biologyScore;
