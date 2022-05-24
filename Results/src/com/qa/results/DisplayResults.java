@@ -1,5 +1,4 @@
-import com.qa.results.CalculateResults;
-
+package com.qa.results;
 public class DisplayResults {
     public static void main(String[] args) throws Exception {
         CalculateResults jeremy = new CalculateResults("Jeremy", 99, 120, 148);
