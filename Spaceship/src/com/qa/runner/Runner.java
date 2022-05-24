@@ -13,7 +13,7 @@ public class Runner {
         listOfShips[2] = nostromo;
 
         for (int i = 0; i < listOfShips.length; i++) {
-            System.out.println(listOfShips[i].toString());
+            System.out.println(listOfShips[i]);
         }
     }
 }
