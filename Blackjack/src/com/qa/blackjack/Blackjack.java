@@ -11,26 +11,32 @@ public class Blackjack {
     
     //Check both hands hold valid values
     private boolean handOneIsValidHand() {
-        return this.handOne <= 21 || this.handOne > 0;
+        return this.handOne <= 21 && this.handOne > 0;
     }
 
     private boolean handTwoIsValidHand() {
-        return this.handTwo <= 21 || this.handTwo > 0;
+        return this.handTwo <= 21 && this.handTwo > 0;
     }
 
     private boolean checkValidHands() {
-        return this.handOneIsValidHand() && this.handTwoIsValidHand();
+        if (!this.handOneIsValidHand() && !this.handTwoIsValidHand()) {
+            return false;
+        }
+        return true;
     }
 
+    //Compare both hands to see which hand is closer to 21
     private int compareHands() {
         if (21 - handOne < 21 - handTwo) {
             return handOne;
         }
         return handTwo;
     }
-    private int checkWinner() {
-        if (checkValidHands()) {
-            return this.compareHands();
+
+    //Check which hand is the winner and return the value of the winning hand
+    public int checkWinner() {
+        if(!checkValidHands()) {
+            return 0;
         }
         else if (!handOneIsValidHand()) {
             return this.handTwo;
@@ -39,11 +45,7 @@ public class Blackjack {
             return this.handOne;
         }
         else {
-            return 0;
+            return this.compareHands();
         }
-    }
-
-    public int results() {
-        return checkWinner(); 
     }
 }
