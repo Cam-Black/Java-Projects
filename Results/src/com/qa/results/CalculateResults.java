@@ -2,6 +2,7 @@ package com.qa.results;
 
 public class CalculateResults {
     
+    //Private variables to be used for calculations
     private String name;
     private int physicsExamScore;
     private int chemistryExamScore;
