@@ -25,11 +25,11 @@ public class CalculateResults {
     private String addApostrophe() {
         String apostropheName = this.name;
 
-        if (apostropheName.substring(apostropheName.length() - 1 ).equals("'"))  {
-            return apostropheName += "s";
+        if (!apostropheName.substring(apostropheName.length() - 1 ).equals("'"))  {
+            return apostropheName += "'s";
         }
         
-        return apostropheName;
+        return apostropheName += "s";
     }   
 
     //Return the marks out of x for each Science Exam
