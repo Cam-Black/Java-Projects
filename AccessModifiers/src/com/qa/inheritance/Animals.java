@@ -3,6 +3,8 @@ package com.qa.inheritance;
 public class Animals {
 	
 	private boolean canFly = false;
+	private int numOfLegs = 0;
+	
 	
 	public Animals() {}
 	
