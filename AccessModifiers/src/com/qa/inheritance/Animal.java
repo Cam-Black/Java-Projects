@@ -1,19 +1,17 @@
 package com.qa.inheritance;
 
-public class Animal {
+public abstract class Animal {
 	//Attributes
-	private boolean canFly = false;
-	private int numOfLegs = 0;
-	private String noise = null;
+	private boolean canFly;
+	private int numOfLegs;
 	
 	//Default Constructor
 	public Animal() {}
 	
 	//Constructor to set all attributes of an Animal
-	public Animal(boolean canFly, int numOfLegs, String noise) {
+	public Animal(boolean canFly, int numOfLegs) {
 		this.canFly = canFly;
 		this.numOfLegs = numOfLegs;
-		this.noise = noise;
 	}
 	
 	//Setters and Getters
@@ -32,12 +30,14 @@ public class Animal {
 		return this.numOfLegs;
 	}
 	
-	public String makeNoise() {
-		return this.noise;
+	public abstract String makeNoise();
+	
+	public String meal() {
+		return "I eat food";
 	}
 	
 	@Override
 	public String toString() {
-		return "Animal [canFly = " + this.canFly + ", numOfLegs = " + this.numOfLegs + ", noise = " + this.noise + "]";
+		return "Animal [canFly = " + this.canFly + ", numOfLegs = " + this.numOfLegs + "]";
 	}
 }
