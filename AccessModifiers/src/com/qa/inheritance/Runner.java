@@ -3,7 +3,9 @@ package com.qa.inheritance;
 public class Runner {
 
 	public static void main(String[] args) {
-//		Animal myAnimal = new Animal(false, 4);
+
+		//Animal is now an abstract class, cannot instantiate Object from Animal
+		//Animal myAnimal = new Animal(false, 4);
 		Bird myBird = new Bird();
 		Animal myBetterBird = new Bird(true, 2, true, "Blue");
 		Dog myDog = new Dog(false, 4, "Cocker Spaniel");
