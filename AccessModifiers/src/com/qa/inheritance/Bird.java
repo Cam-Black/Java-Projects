@@ -1,6 +1,6 @@
 package com.qa.inheritance;
 
-public class Bird extends Animal {
+public class Bird extends Animal implements BetterAnimal {
 	
 	private boolean hasWings = true;
 	private String colour = "Black"; 
@@ -10,8 +10,11 @@ public class Bird extends Animal {
 	public Bird(boolean canFly, int numOfLegs, boolean hasWings, String colour) {
 		super(canFly, numOfLegs);
 		this.hasWings = hasWings;
-		this.colour = colour;
-		
+		this.colour = colour;	
+	}
+	
+	public String animal() {
+		return "I am bird";
 	}
 	
 	public void setWings(boolean hasWings) {

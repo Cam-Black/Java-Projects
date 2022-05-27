@@ -1,6 +1,6 @@
 package com.qa.inheritance;
 
-public abstract class Animal {
+public class Animal {
 	//Attributes
 	private boolean canFly;
 	private int numOfLegs;
@@ -30,7 +30,11 @@ public abstract class Animal {
 		return this.numOfLegs;
 	}
 	
-	public abstract String makeNoise();
+	
+	//Methods for all Animal Objects
+	public String makeNoise() {
+		return "noise";
+	}
 	
 	public String meal() {
 		return "I eat food";

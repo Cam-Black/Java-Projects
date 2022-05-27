@@ -1,6 +1,6 @@
 package com.qa.inheritance;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements BetterAnimal{
 	private String noise = "meow";
 	private String favouriteFood = "Tuna";
 
@@ -13,6 +13,9 @@ public class Cat extends Animal {
 		this.favouriteFood = favouriteFood;
 	}
 	
+	public String animal() {
+		return "I am cat";
+	}
 	public String iAmCat() {
 		return "I am a Cat, bow before me!";
 	}

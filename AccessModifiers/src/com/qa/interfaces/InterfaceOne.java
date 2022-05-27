@@ -1,5 +1,6 @@
 package com.qa.interfaces;
 
 public interface InterfaceOne {
-	public String name();
+	public String forename();
+	public String surname();
 }
