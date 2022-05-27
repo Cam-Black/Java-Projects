@@ -1,10 +1,20 @@
 package com.qa.abstracts;
 
 public class Mexican extends Food {
-	private boolean spicy;
-	private String dish;
-	private int cost;
+	private boolean spicy = false;
+	private String dish = "Food";
+	private double cost = 10;
 	
+	public Mexican() {}
+	
+	public Mexican(boolean spicy, String dish, double cost) {
+		super();
+		this.spicy = spicy;
+		this.dish = dish;
+		this.cost = cost;
+	}
+
+
 	@Override
 	public boolean isSpicy() {
 		return spicy;
@@ -12,14 +22,12 @@ public class Mexican extends Food {
 
 	@Override
 	public void meal() {
-		System.out.println();
-		
+		System.out.println("Tonights meal is " + dish);
 	}
 
 	@Override
 	public void price() {
-		// TODO Auto-generated method stub
+		System.out.println("The meal will cost you: " + cost);
 		
 	}
-	
 }
