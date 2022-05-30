@@ -1,6 +1,4 @@
-package com.qa.openclosed.runner;
-
-import com.qa.openclosed.greeting.Greeting;
+package com.qa.openclosed.greeting;
 
 public class CasualGreeting implements Greeting{
 	
@@ -8,5 +6,4 @@ public class CasualGreeting implements Greeting{
 	public String message() {
 		return "Sup m8?";
 	}
-	
 }
