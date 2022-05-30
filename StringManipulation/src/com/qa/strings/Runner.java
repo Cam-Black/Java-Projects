@@ -13,5 +13,6 @@ public class Runner {
         str2.verticalLineReverse("My string but vertical");
         System.out.println(str2.findMyWord("This is my message", "this"));
         System.out.println(str2.findMyWord("What if it isn't in the word?", "blue"));
+        System.out.println(str2.uppercaseMessage());
     }
 }
