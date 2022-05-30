@@ -12,5 +12,11 @@ public class App {
         System.out.println(myNumber.multiplyNum(5));
 
         System.out.println(myNumber.subtractTwo());
+        
+        
+        double myDouble = 43.84;
+        int myInt = (int) Math.round(myDouble);
+//        int myInt = (int) myDouble;
+        System.out.println(myInt);
     }
 }
