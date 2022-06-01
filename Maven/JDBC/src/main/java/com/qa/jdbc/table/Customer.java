@@ -38,4 +38,11 @@ public class Customer {
 	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerID=" + customerID + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", homeAddress=" + homeAddress + "]";
+	}
+	
 }
