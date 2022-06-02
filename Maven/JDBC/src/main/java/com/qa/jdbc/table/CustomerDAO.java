@@ -14,33 +14,38 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CustomerDAO {
-
+	//Created a log4j logger
 	public static final Logger LOGGER = LogManager.getLogger(CustomerDAO.class);
-
+	
+	//Attributes for connecting to the database
 	private String jdbcConnectionURL;
 	private String username;
 	private String password;
-
+	
+	//Constructor asking for username and password, setting the URL at start
 	public CustomerDAO(String username, String password) {
 		jdbcConnectionURL = "jdbc:mysql://localhost:3306/my_new_shop";
 		this.username = username;
 		this.password = password;
 	}
-
+	
+	//Constructor for setting username and password along with connection URL
 	public CustomerDAO(String jdbcConnectionURL, String username, String password) {
 		this.jdbcConnectionURL = jdbcConnectionURL;
 		this.username = username;
 		this.password = password;
 	}
-
-	public Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
+	
+	//Method for unwrapping a customer from a result set
+	private Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
 		int customerID = resultSet.getInt("customer_id");
 		String firstName = resultSet.getString("first_name");
 		String lastName = resultSet.getString("surname");
 		String homeAddress = resultSet.getString("home_address");
 		return new Customer(customerID, firstName, lastName, homeAddress);
 	}
-
+	
+	//Method to read a single customer from database utilising the customerFromResultSet unwrap method
 	public Customer readCustomer(int id) {
 		String query = "SELECT * FROM customers WHERE customer_id = " + id;
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionURL, username, password);
@@ -54,7 +59,9 @@ public class CustomerDAO {
 		}
 		return null;
 	}
-
+	
+	//Method to read all customers from a database utilising an array list then using the customerFromResultSet
+	//unwrap method
 	public List<Customer> readAll() {
 		List<Customer> customers = new ArrayList<>();
 		try {
@@ -71,7 +78,8 @@ public class CustomerDAO {
 		}
 		return customers;
 	}
-
+	
+	//Method to add a new customer to the database with new fields, using a Customer object as the parameter
 	public Customer addCustomer(Customer customer) {
 		String addCustomer = "INSERT INTO customers (first_name, surname, home_address) VALUES (?, ?, ?)";
 		try {
@@ -87,7 +95,8 @@ public class CustomerDAO {
 		}
 		return customer;
 	}
-
+	
+	//Method to delete a single row in customers where ID is matched by user input
 	public void deleteCustomerByID() {
 		Scanner s = new Scanner(System.in);
 		int customer_id;
@@ -108,6 +117,8 @@ public class CustomerDAO {
 		}
 	}
 	
+	//Method to update all fields of a customer, where each field is given a value by the user from the command line
+	//TO-DO: Allow editing of individual fields of a customer object
 	public Customer updateCustomer(Customer customer) {
 		Scanner s = new Scanner (System.in);
 		int customerID;
