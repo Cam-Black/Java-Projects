@@ -71,19 +71,19 @@ public class CustomerDAO {
 		return customers;
 	}
 
-	public Customer addCustomer(Customer newCustomer) {
+	public Customer addCustomer(Customer customer) {
 		String addCustomer = "INSERT INTO customers (first_name, surname, home_address) VALUES (?, ?, ?)";
 		try {
 			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
 			PreparedStatement ps = con.prepareStatement(addCustomer);
-			ps.setString(1, newCustomer.getFirstName());
-			ps.setString(2, newCustomer.getLastName());
-			ps.setString(3, newCustomer.getHomeAddress());
+			ps.setString(1, customer.getFirstName());
+			ps.setString(2, customer.getLastName());
+			ps.setString(3, customer.getHomeAddress());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.debug(e.getStackTrace());
 		}
-		return newCustomer;
+		return customer;
 	}
 }
