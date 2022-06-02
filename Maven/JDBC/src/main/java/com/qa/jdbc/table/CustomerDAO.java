@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -79,11 +80,31 @@ public class CustomerDAO {
 			ps.setString(1, customer.getFirstName());
 			ps.setString(2, customer.getLastName());
 			ps.setString(3, customer.getHomeAddress());
-			
+
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.debug(e.getStackTrace());
 		}
 		return customer;
+	}
+
+	public void deleteCustomerByID() {
+		Scanner s = new Scanner(System.in);
+		int customer_id;
+		String deleteQuery = "DELETE FROM customers WHERE customer_id = ?";
+		try {
+			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
+			PreparedStatement ps = con.prepareStatement(deleteQuery);
+			
+			System.out.println("Enter Customer ID of customer to delete:");
+			customer_id = s.nextInt();
+			ps.setInt(1, customer_id);
+			int rows = ps.executeUpdate();
+			System.out.println("Rows affected: " + rows);
+		} catch (SQLException e) {
+			LOGGER.debug(e.getStackTrace());
+		} finally {
+			s.close();
+		}
 	}
 }

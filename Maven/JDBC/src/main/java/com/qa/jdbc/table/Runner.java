@@ -6,9 +6,11 @@ public class Runner {
 		CustomerDAO customerDAO = new CustomerDAO("root", "root");
 		Customer newCustomer = new Customer();
 		
-		newCustomer.createCustomer(newCustomer);
+//		newCustomer.createCustomer(newCustomer);
 
-		customerDAO.addCustomer(newCustomer);
+//		customerDAO.addCustomer(newCustomer);
+		System.out.println(customerDAO.readAll());
+		customerDAO.deleteCustomerByID();
 		System.out.println(customerDAO.readAll());
 	}
 }
