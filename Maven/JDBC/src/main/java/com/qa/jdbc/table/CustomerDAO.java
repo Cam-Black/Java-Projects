@@ -107,4 +107,39 @@ public class CustomerDAO {
 			s.close();
 		}
 	}
+	
+	public Customer updateCustomer(Customer customer) {
+		Scanner s = new Scanner (System.in);
+		int customerID;
+		String updateQuery = "UPDATE customers SET first_name = ?, surname = ?, home_address = ? WHERE customer_id = ?";
+		
+		try {
+			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
+			PreparedStatement ps = con.prepareStatement(updateQuery);
+			
+			System.out.println("New First Name = ");
+			customer.setFirstName(s.nextLine());
+			ps.setString(1, customer.getFirstName());
+			
+			System.out.println("New Last Name = ");
+			customer.setLastName(s.nextLine());
+			ps.setString(2, customer.getLastName());
+			
+			System.out.println("New Home Address = ");
+			customer.setHomeAddress(s.nextLine());
+			ps.setString(3, customer.getHomeAddress());
+			
+			System.out.println("Customer ID to change = ");
+			customerID = s.nextInt();
+			ps.setInt(4,  customerID);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			LOGGER.debug(e.getStackTrace());
+		} finally {
+			s.close();
+		}
+		return customer;
+	}
 }
