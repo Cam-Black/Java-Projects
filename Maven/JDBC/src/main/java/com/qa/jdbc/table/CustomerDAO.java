@@ -2,6 +2,7 @@ package com.qa.jdbc.table;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -59,20 +60,30 @@ public class CustomerDAO {
 			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
 			Statement statement = con.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM customers");
-			
+
 			while (result.next()) {
 				Customer customer = this.customerFromResultSet(result);
 				customers.add(customer);
 			}
-		} 
-		
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			LOGGER.debug(e.getStackTrace());
-		} 
+		}
 		return customers;
 	}
-	
-//	public Customer addCustomer() {
-//		
-//	}
+
+	public Customer addCustomer(Customer newCustomer) {
+		String addCustomer = "INSERT INTO customers (first_name, surname, home_address) VALUES (?, ?, ?)";
+		try {
+			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
+			PreparedStatement ps = con.prepareStatement(addCustomer);
+			ps.setString(1, newCustomer.getFirstName());
+			ps.setString(2, newCustomer.getLastName());
+			ps.setString(3, newCustomer.getHomeAddress());
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			LOGGER.debug(e.getStackTrace());
+		}
+		return newCustomer;
+	}
 }

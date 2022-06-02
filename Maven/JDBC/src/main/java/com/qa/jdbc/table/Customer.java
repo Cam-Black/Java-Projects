@@ -8,6 +8,14 @@ public class Customer {
 	
 	public Customer() {}
 	
+	public Customer(int customerID, String firstName, String lastName, String homeAddress) {
+		super();
+		this.customerID = customerID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.homeAddress = homeAddress;
+	}
+
 	public Customer(String firstName, String lastName, String homeAddress) {
 		this.firstName = firstName;
 		this.lastName = lastName;
