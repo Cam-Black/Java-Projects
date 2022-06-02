@@ -8,8 +8,7 @@ public class Customer {
 	
 	public Customer() {}
 	
-	public Customer(int customerID, String firstName, String lastName, String homeAddress) {
-		this.customerID = customerID;
+	public Customer(String firstName, String lastName, String homeAddress) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.homeAddress = homeAddress;
@@ -37,6 +36,10 @@ public class Customer {
 
 	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
+	}
+	
+	public int getCustomerID() {
+		return this.customerID;
 	}
 
 	@Override
