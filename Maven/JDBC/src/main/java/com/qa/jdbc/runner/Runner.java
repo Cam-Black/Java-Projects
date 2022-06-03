@@ -1,4 +1,7 @@
-package com.qa.jdbc.table;
+package com.qa.jdbc.runner;
+
+import com.qa.jdbc.table.Customer;
+import com.qa.jdbc.table.CustomerDAO;
 
 public class Runner {
 
@@ -7,8 +10,8 @@ public class Runner {
 		Customer customer = new Customer();
 		
 		customer.createCustomer(customer);
-		customerDAO.addCustomer(customer);
-		
+//		customerDAO.addCustomer(customer);
+//		
 		System.out.println(customerDAO.readAll());
 		customerDAO.deleteCustomerByID();
 		customerDAO.updateCustomer(customer);
