@@ -62,7 +62,7 @@ public class Customer {
 	public Customer createCustomer(Customer customer) {
 		
 		Scanner s = new Scanner(System.in);
-		try {
+	
 			System.out.println("Enter Customer First Name:");
 			customer.setFirstName(s.nextLine());
 			System.out.println("Enter Customer Last Name:");
@@ -70,9 +70,7 @@ public class Customer {
 			System.out.println("Enter Customer Home Address:");
 			customer.setHomeAddress(s.nextLine());
 			return customer;
-		} finally {
-			s.close();
-		}
+		
 	}
 	
 	//toString method to present the data formatted in a single string 

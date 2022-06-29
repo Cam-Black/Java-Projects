@@ -44,7 +44,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.qa.jdbc.table.Runner</mainClass>
+							<mainClass>com.qa.jdbc.runner.Runner</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
