@@ -1,5 +1,10 @@
 package com.qa.collection.hashing;
 
-public class HashSetPractice {
+import java.util.HashSet;
+import java.util.Set;
 
+public class HashSetPractice {
+	Set<String> cars = new HashSet<>();
+	
+	
 }

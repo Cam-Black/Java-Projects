@@ -1,10 +1,40 @@
 package com.qa.runner;
 
+import java.util.ArrayList;
+
+import com.qa.collection.arraytypes.ArrayListPractice;
 import com.qa.collection.arraytypes.ArrayPractice;
+import com.qa.collection.arraytypes.LinkedListPractice;
 
 public class Runner {
 	public static void main(String[] args) {
 		ArrayPractice myArr = new ArrayPractice();
 		System.out.println(myArr);
+		
+		ArrayListPractice myArrList = new ArrayListPractice();
+		myArrList.addNums(1);
+		myArrList.addNums(2);
+		myArrList.addNums(3);
+		System.out.println(myArrList.toString());
+		
+		ArrayList<String> team = new ArrayList<String>();
+		ArrayList<String> newTeam = new ArrayList<String>();
+		team.add("Cam");
+		team.add("Dev");
+		team.add("Erhan");
+		
+		int ranNum = 0;
+		ranNum = (int) (Math.floor(Math.random() * team.size()));
+		
+		newTeam.add(team.get(ranNum));
+		team.remove(ranNum);
+		System.out.println(team + " " + newTeam);
+		
+		LinkedListPractice fOneTeams = new LinkedListPractice();
+		fOneTeams.addTeams("Red Bull");
+		fOneTeams.addTeams("Mercedes");
+		fOneTeams.addTeams("Ferrari");
+		
+		System.out.println(fOneTeams);
 	}
 }
