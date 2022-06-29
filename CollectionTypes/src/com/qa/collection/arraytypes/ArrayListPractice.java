@@ -14,15 +14,6 @@ public class ArrayListPractice {
 
 	@Override
 	public String toString() {
-		String listNums = "";
-		for (int num : nums) {
-			if (num == nums.size()) {
-				listNums += num + ";";
-			}
-			else {
-				listNums += num + ", ";	
-			}
-		}
-		return listNums;
+		return "Numbers: " + nums;
 	}
 }

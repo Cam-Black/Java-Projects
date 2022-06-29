@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.qa.collection.arraytypes.ArrayListPractice;
 import com.qa.collection.arraytypes.ArrayPractice;
 import com.qa.collection.arraytypes.LinkedListPractice;
+import com.qa.collection.hashing.HashSetPractice;
 
 public class Runner {
 	public static void main(String[] args) {
@@ -36,5 +37,9 @@ public class Runner {
 		fOneTeams.addTeams("Ferrari");
 		
 		System.out.println(fOneTeams);
+		
+		HashSetPractice myCars = new HashSetPractice();
+		myCars.addCars("Porsche");
+		System.out.println(myCars);
 	}
 }
