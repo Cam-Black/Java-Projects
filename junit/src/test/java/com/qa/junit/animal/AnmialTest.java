@@ -9,7 +9,6 @@ public class AnmialTest {
 	
 	@Test
 	public void makeNoise() {
-		Animal created = new Animal();
-		assertEquals(created, ANIMAL.makeNoise());
+		assertEquals(ANIMAL.makeNoise(), "Noise");
 	}
 }
