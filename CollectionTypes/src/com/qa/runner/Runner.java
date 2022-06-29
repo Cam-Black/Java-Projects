@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.qa.collection.arraytypes.ArrayListPractice;
 import com.qa.collection.arraytypes.ArrayPractice;
 import com.qa.collection.arraytypes.LinkedListPractice;
+import com.qa.collection.enums.Pizza;
 import com.qa.collection.hashing.HashMapPractice;
 import com.qa.collection.hashing.HashSetPractice;
 
@@ -47,5 +48,10 @@ public class Runner {
 		driverRanks.addDriver(1, "Max Verstappen");
 		driverRanks.addDriver(2, "Sergio Perez");
 		System.out.println(driverRanks);
+		
+		for (Pizza p : Pizza.values()) {
+			System.out.println(p);
+		}
+		System.out.println(Pizza.orderPizza("Pepperoni"));
 	}
 }
