@@ -21,7 +21,11 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public double getCost() {
+    /**
+     * @return cost * quantity.
+     *
+     */
+    public double getTotalCost() {
         return this.cost * (double) this.quantity;
     }
 }
