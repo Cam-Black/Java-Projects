@@ -9,12 +9,14 @@ public class Runner {
 		CustomerDAO customerDAO = new CustomerDAO("root", "root");
 		Customer customer = new Customer();
 		
-		customer.createCustomer(customer);
+//		customer.createCustomer(customer);
 //		customerDAO.addCustomer(customer);
-//		
+		
 		System.out.println(customerDAO.readAll());
+		
 		customerDAO.deleteCustomerByID();
 		customerDAO.updateCustomer(customer);
+		
 		System.out.println(customerDAO.readAll());
 	}
 }

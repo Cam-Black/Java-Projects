@@ -101,6 +101,7 @@ public class CustomerDAO {
 		Scanner s = new Scanner(System.in);
 		int customer_id;
 		String deleteQuery = "DELETE FROM customers WHERE customer_id = ?";
+		
 		try {
 			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
 			PreparedStatement ps = con.prepareStatement(deleteQuery);
@@ -112,8 +113,6 @@ public class CustomerDAO {
 			System.out.println("Rows affected: " + rows);
 		} catch (SQLException e) {
 			LOGGER.debug(e.getStackTrace());
-		} finally {
-			s.close();
 		}
 	}
 	
@@ -123,7 +122,7 @@ public class CustomerDAO {
 		Scanner s = new Scanner (System.in);
 		int customerID;
 		String updateQuery = "UPDATE customers SET first_name = ?, surname = ?, home_address = ? WHERE customer_id = ?";
-		
+				
 		try {
 			Connection con = DriverManager.getConnection(jdbcConnectionURL, username, password);
 			PreparedStatement ps = con.prepareStatement(updateQuery);
@@ -148,9 +147,7 @@ public class CustomerDAO {
 			
 		} catch (SQLException e) {
 			LOGGER.debug(e.getStackTrace());
-		} finally {
-			s.close();
-		}
+		} 
 		return customer;
 	}
 }
