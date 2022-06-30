@@ -5,8 +5,10 @@ import com.qa.generics.items.Item;
 public class Runner {
 
 	public static void main(String[] args) {
-		Item<Object> item1 = new Item<>("Apple", 1.99f);
-		item1.addItem(item1);
-		item1.printItems();
+		Item<Object> items = new Item<>();
+		items.addItem(new Item<>("Pear", 1.50f));
+		items.addItem(new Item<>("Apple", 1.20f));
+		items.printItems();
+
 	}
 }

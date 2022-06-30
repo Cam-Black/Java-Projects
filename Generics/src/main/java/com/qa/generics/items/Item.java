@@ -6,6 +6,7 @@ public class Item<T> {
 	private float cost = 0;
 	private ArrayList<T> myItems = new ArrayList<>();
 
+	public Item(){};
 	public Item(String name, float cost) {
 		this.name = name;
 		this.cost = cost;
