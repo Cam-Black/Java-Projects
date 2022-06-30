@@ -14,7 +14,5 @@ public class App {
         FOneTeams teamList = new FOneTeams();
         System.out.println(teamList.toString());
         teamList.filterTeams("M");
-
-
     }
 }
