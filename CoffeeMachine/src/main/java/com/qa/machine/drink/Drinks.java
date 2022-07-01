@@ -9,21 +9,28 @@ public class Drinks {
     }
 
     public Drinks(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public double getPrice() {
-        return 0;
+        return this.price;
     }
 
     public double getTotalPrice() {
-        return 0;
+        return this.price * this.quantity;
     }
 
     public String getName() {
-        return null;
+        return this.name;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
     }
     @Override
     public String toString() {
-        return null;
+        return "Drink [Name: " + this.name + ", Cost: " + this.price + ", Quantity: " + quantity + "]";
     }
 }
