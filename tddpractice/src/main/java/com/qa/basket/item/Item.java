@@ -26,6 +26,6 @@ public class Item {
      *
      */
     public double getTotalCost() {
-        return this.cost * (double) this.quantity;
+        return this.cost * this.quantity;
     }
 }

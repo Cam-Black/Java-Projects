@@ -7,7 +7,7 @@ import static java.util.Objects.isNull;
 /**
  * <p>Shopping basket class allows us to create a list of items and add it to our basket<br>
  * Cost is then calculated by individual item's cost * quantity,
- * <em>{@link com.qa.basket.item.Item#getTotalCost() totalCost() method}</em></p>
+ * <em>see: {@link com.qa.basket.item.Item#getTotalCost()  totalCost() method}</em></p>
  */
 public class ShoppingBasket {
     private List<Item> items;
