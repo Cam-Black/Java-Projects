@@ -3,15 +3,17 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="-252.33333333333331" y="-339.50000000000006">com.qa.machine.CoffeeMachine</node>
+    <node x="-136.5" y="-347.0">com.qa.machine.CoffeeMachine</node>
+    <node x="-384.5" y="-380.0">com.qa.machine.drink.Drinks</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Compact" zoom="1.5" showDependencies="false" x="-154.0" y="-291.5" />
+  <settings layout="Hierarchic Compact" zoom="1.5" showDependencies="false" x="-157.5" y="-253.99999999999997" />
   <SelectedNodes>
-    <node>com.qa.machine.CoffeeMachine</node>
+    <node>com.qa.machine.drink.Drinks</node>
   </SelectedNodes>
   <Categories>
+    <Category>Constructors</Category>
     <Category>Fields</Category>
     <Category>Methods</Category>
   </Categories>
