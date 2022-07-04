@@ -1,11 +1,10 @@
 package com.qa.springstarter.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MiddleEarth {
+public class MiddleEarthController {
     @GetMapping("/hello")
     public String helloWorld() {
         return "Hello World!";
@@ -18,6 +17,11 @@ public class MiddleEarth {
 
     @GetMapping("/isengard")
     public String isengard() {
-        return "They're taking the Hobbits to Isengard!";
+        return "<h1 style='text-align: center;'>They're taking the Hobbits to Isengard!</h1>";
+    }
+
+    @GetMapping("/gandalf")
+    public String gandalf() {
+        return "<h1 style='color: red;'>YOU... SHALL NOT... PASS!</h1>";
     }
 }
