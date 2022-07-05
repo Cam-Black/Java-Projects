@@ -1,6 +1,8 @@
 package com.qa.springstarter.controller;
 
 import com.qa.springstarter.shire.Hobbit;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -13,19 +15,21 @@ public class HobbitController {
     List<Hobbit> hobbits = new ArrayList<>();
 
     @PostMapping("/hobbit/create")
-    public Hobbit createHobbit(@RequestBody Hobbit hobbit) {
+    public ResponseEntity<Hobbit> createHobbit(@RequestBody Hobbit hobbit) {
         this.hobbits.add(hobbit);
-        return this.hobbits.get(this.hobbits.size() - 1);
+        Hobbit created = this.hobbits.get(this.hobbits.size() - 1);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @GetMapping("/hobbit/list-hobbits")
-    public List<Hobbit> getHobbits() {
-        return hobbits;
+    public ResponseEntity<List<Hobbit>> getHobbits() {
+        return new ResponseEntity<>(hobbits, HttpStatus.OK);
     }
 
     @GetMapping("/hobbit/list-hobbit/{id}")
-    public Hobbit getHobbit(@PathVariable("id") int id) {
-        return this.hobbits.get(id);
+    public ResponseEntity<Hobbit> getHobbit(@PathVariable("id") int id) {
+        Hobbit myHobbit = this.hobbits.get(id);
+        return new ResponseEntity<>(myHobbit, HttpStatus.OK);
     }
 
     @PatchMapping("hobbit/update/{id}")
@@ -39,10 +43,8 @@ public class HobbitController {
     }
 
     @DeleteMapping("hobbit/delete/{id}")
-    public String deleteHobbit(@PathVariable("id") int id) {
-        Hobbit deletedHobbit = hobbits.get(id);
+    public ResponseEntity<?> deleteHobbit(@PathVariable("id") int id) {
         hobbits.remove(id);
-        return deletedHobbit + ": Deleted";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
