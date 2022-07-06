@@ -1,6 +1,6 @@
-package com.qa.springstarter.service;
+package com.qa.springstarter.middleearth.shire.service;
 
-import com.qa.springstarter.shire.Hobbit;
+import com.qa.springstarter.middleearth.shire.Hobbit;
 
 import java.util.List;
 

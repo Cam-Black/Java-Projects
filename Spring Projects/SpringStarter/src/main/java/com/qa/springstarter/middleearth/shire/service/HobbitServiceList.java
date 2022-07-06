@@ -1,7 +1,6 @@
-package com.qa.springstarter.shire.service;
+package com.qa.springstarter.middleearth.shire.service;
 
-import com.qa.springstarter.service.HobbitService;
-import com.qa.springstarter.shire.Hobbit;
+import com.qa.springstarter.middleearth.shire.Hobbit;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

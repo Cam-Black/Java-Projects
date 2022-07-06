@@ -1,4 +1,4 @@
-package com.qa.springstarter.shire;
+package com.qa.springstarter.middleearth.shire;
 
 import javax.persistence.*;
 
