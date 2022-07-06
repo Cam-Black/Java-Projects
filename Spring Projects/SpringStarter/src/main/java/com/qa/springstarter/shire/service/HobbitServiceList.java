@@ -40,4 +40,9 @@ public class HobbitServiceList implements HobbitService {
     public void deleteHobbit(int id) {
         hobbits.remove(id);
     }
+
+    @Override
+    public List<Hobbit> findHobbitByFamilyName(String forename) {
+        return null;
+    }
 }

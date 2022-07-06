@@ -23,7 +23,6 @@ public class HobbitServiceDB implements HobbitService {
         return repo.findById(id).get();
     }
 
-
     @Override
     public List<Hobbit> getAllHobbits() {
         return repo.findAll();
@@ -46,5 +45,10 @@ public class HobbitServiceDB implements HobbitService {
     @Override
     public void deleteHobbit(int id) {
         repo.deleteById(id);
+    }
+
+    @Override
+    public List<Hobbit> findHobbitByFamilyName(String familyName) {
+        return repo.findHobbitByFamilyName(familyName);
     }
 }

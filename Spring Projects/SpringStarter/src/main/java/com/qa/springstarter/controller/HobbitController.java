@@ -34,15 +34,20 @@ public class HobbitController {
         return service.getAHobbit(id);
     }
 
-    @PatchMapping("hobbit/update/{id}")
+    @PatchMapping("/hobbit/update/{id}")
     public Hobbit updateHobbit(@PathVariable("id") int id, @PathParam("forename") String forename,
                                @PathParam("familyName") String familyName, @PathParam("age") int age) {
         return service.updateHobbit(id, forename, familyName, age);
     }
 
-    @DeleteMapping("hobbit/delete/{id}")
+    @DeleteMapping("/hobbit/delete/{id}")
     public ResponseEntity<?> deleteHobbit(@PathVariable("id") int id) {
         service.deleteHobbit(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/hobbit/findFamilies/")
+    public List<Hobbit> getHobbitFamilies(@PathParam("familyName") String familyName) {
+        return service.findHobbitByFamilyName(familyName);
     }
 }
