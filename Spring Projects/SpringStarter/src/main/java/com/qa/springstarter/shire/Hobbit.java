@@ -1,15 +1,30 @@
 package com.qa.springstarter.shire;
 
+/**
+ * Allows for creation of Hobbit Objects.<br>
+ * Hobbits have an <code>id</code>, <code>forename</code> and a <code>familyName</code>.
+ */
 public class Hobbit {
     private int id;
     private String forename;
     private String familyName;
     private int age;
 
+    /**
+     * Default constructor to create an empty Hobbit Object.
+     */
     public Hobbit() {
         super();
     }
 
+    /**
+     * Hobbit Constructor that allows creation of a Hobbit Object with all attributes populated:
+     *
+     * @param id         An int value to denote a Hobbit Object's position in a List/DataBase.
+     * @param forename   A String value for giving a Hobbit a first name.
+     * @param familyName A String value for giving a Hobbit their familyName.
+     * @param age        An int value for storing the age of a Hobbit.
+     */
     public Hobbit(int id, String forename, String familyName, int age) {
         super();
         this.id = id;
