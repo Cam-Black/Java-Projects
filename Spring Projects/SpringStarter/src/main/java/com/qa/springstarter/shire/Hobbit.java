@@ -1,13 +1,21 @@
 package com.qa.springstarter.shire;
 
+import javax.persistence.*;
+
 /**
  * Allows for creation of Hobbit Objects.<br>
  * Hobbits have an <code>id</code>, <code>forename</code> and a <code>familyName</code>.
  */
+
+@Entity
 public class Hobbit {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String forename;
     private String familyName;
+    @Column(nullable = false)
     private int age;
 
     /**
@@ -25,7 +33,7 @@ public class Hobbit {
      * @param familyName A String value for giving a Hobbit their familyName.
      * @param age        An int value for storing the age of a Hobbit.
      */
-    public Hobbit(int id, String forename, String familyName, int age) {
+    public Hobbit(Integer id, String forename, String familyName, int age) {
         super();
         this.id = id;
         this.forename = forename;
@@ -33,11 +41,11 @@ public class Hobbit {
         this.age = age;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
