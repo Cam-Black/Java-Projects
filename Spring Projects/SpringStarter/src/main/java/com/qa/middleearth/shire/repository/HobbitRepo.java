@@ -1,6 +1,6 @@
-package com.qa.springstarter.middleearth.shire.repository;
+package com.qa.middleearth.shire.repository;
 
-import com.qa.springstarter.middleearth.shire.Hobbit;
+import com.qa.middleearth.shire.Hobbit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

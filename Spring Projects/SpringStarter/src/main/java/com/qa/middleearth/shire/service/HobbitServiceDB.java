@@ -1,7 +1,7 @@
-package com.qa.springstarter.middleearth.shire.service;
+package com.qa.middleearth.shire.service;
 
-import com.qa.springstarter.middleearth.shire.Hobbit;
-import com.qa.springstarter.middleearth.shire.repository.HobbitRepo;
+import com.qa.middleearth.shire.Hobbit;
+import com.qa.middleearth.shire.repository.HobbitRepo;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 

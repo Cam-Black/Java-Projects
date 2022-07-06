@@ -1,7 +1,7 @@
-package com.qa.springstarter.middleearth.shire.controller;
+package com.qa.middleearth.shire.controller;
 
-import com.qa.springstarter.middleearth.shire.Hobbit;
-import com.qa.springstarter.middleearth.shire.service.HobbitService;
+import com.qa.middleearth.shire.Hobbit;
+import com.qa.middleearth.shire.service.HobbitService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
