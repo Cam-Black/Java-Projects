@@ -41,6 +41,13 @@ public class Hobbit {
         this.age = age;
     }
 
+    public Hobbit(String forename, String familyName, int age) {
+        super();
+        this.forename = forename;
+        this.familyName = familyName;
+        this.age = age;
+    }
+
     public Integer getId() {
         return id;
     }
