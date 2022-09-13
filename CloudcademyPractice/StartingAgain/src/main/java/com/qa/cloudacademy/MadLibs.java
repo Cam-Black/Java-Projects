@@ -46,5 +46,6 @@ public class MadLibs {
 						clothing + " and to " + hobby + ".\nShe wanted to marry the " + adjThree + " " + occTwo +
 						" named " + boysName + ".\nBut her father, King " + father + " forbid her from seeing him.";
 		System.out.println(story);
+		s.close();
 	}
 }
