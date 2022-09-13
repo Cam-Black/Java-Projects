@@ -4,7 +4,7 @@ public class LearningPackage {
 	private int learningPackageLevel;
 	private double packageCost;
 	private int numOfCourses;
-	private double costPerCourse;
+	private double costPerAdditionalCourse;
 	private final Utils UTILS;
 	
 	public LearningPackage() {
@@ -36,12 +36,12 @@ public class LearningPackage {
 		this.numOfCourses = numOfCourses;
 	}
 	
-	public double getCostPerCourse() {
-		return costPerCourse;
+	public double getCostPerAdditionalCourseCourse() {
+		return costPerAdditionalCourse;
 	}
 	
-	public void setCostPerCourse(double costPerCourse) {
-		this.costPerCourse = costPerCourse;
+	public void setCostPerAdditionalCourse(double costPerAdditionalCourse) {
+		this.costPerAdditionalCourse = costPerAdditionalCourse;
 	}
 	
 	public void setLearningPackageLevelUserInput() {
@@ -51,19 +51,19 @@ public class LearningPackage {
 			case 1:
 				this.setPackageCost(PackageLevels.PACKAGE_ONE.getPackagePrice());
 				this.setNumOfCourses(PackageLevels.PACKAGE_ONE.getNumOfIncludedCourses());
-				this.setCostPerCourse(PackageLevels.PACKAGE_ONE.getAdditionalCourseCost());
+				this.setCostPerAdditionalCourse(PackageLevels.PACKAGE_ONE.getAdditionalCourseCost());
 				break;
 				
 			case 2:
 				this.setPackageCost(PackageLevels.PACKAGE_TWO.getPackagePrice());
 				this.setNumOfCourses(PackageLevels.PACKAGE_TWO.getNumOfIncludedCourses());
-				this.setCostPerCourse(PackageLevels.PACKAGE_TWO.getAdditionalCourseCost());
+				this.setCostPerAdditionalCourse(PackageLevels.PACKAGE_TWO.getAdditionalCourseCost());
 				break;
 				
 			case 3:
 				this.setPackageCost(PackageLevels.PACKAGE_THREE.getPackagePrice());
 				this.setNumOfCourses(PackageLevels.PACKAGE_THREE.getNumOfIncludedCourses());
-				this.setCostPerCourse(PackageLevels.PACKAGE_THREE.getAdditionalCourseCost());
+				this.setCostPerAdditionalCourse(PackageLevels.PACKAGE_THREE.getAdditionalCourseCost());
 				break;
 				
 			default:
@@ -74,8 +74,8 @@ public class LearningPackage {
 	
 	@Override
 	public String toString() {
-		return "Package Level: " + this.getLearningPackageLevel() + "\nPackage Cost: " + this.getPackageCost() +
-				"\nNumber of " + "included courses: " + this.getNumOfCourses() + "\nCost per additional cours: " +
-				this.getCostPerCourse() + "]";
+		return "Package Level: " + this.getLearningPackageLevel() + "\nPackage Cost: $" + String.format("%.2f",
+				this.getPackageCost()) + "\nNumber of " + "included courses: " + this.getNumOfCourses() + "\nCost per" +
+				" additional course: $" + String.format("%.2f", this.getCostPerAdditionalCourseCourse());
 	}
 }
