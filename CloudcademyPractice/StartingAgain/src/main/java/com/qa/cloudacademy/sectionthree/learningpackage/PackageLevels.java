@@ -26,4 +26,8 @@ public enum PackageLevels {
 			System.out.println(packageLevels.packageInfo());
 		}
 	}
+	
+	public int getNumOfIncludedCourses() {
+		return this.numOfIncludedCourses;
+	}
 }
