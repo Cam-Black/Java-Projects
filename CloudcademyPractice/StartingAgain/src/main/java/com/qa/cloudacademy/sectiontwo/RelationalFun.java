@@ -1,4 +1,4 @@
-package com.qa.cloudacademy;
+package com.qa.cloudacademy.sectiontwo;
 
 public class RelationalFun {
 	public static void main(String[] args) {

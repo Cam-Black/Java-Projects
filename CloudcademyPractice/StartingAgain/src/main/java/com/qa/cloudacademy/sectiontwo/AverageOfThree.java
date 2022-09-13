@@ -1,4 +1,4 @@
-package com.qa.cloudacademy;
+package com.qa.cloudacademy.sectiontwo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
