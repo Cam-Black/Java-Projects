@@ -23,6 +23,7 @@ public enum PackageLevels {
 	
 	public static void printPackages() {
 		int i = 0;
+		System.out.println("Package Options: ");
 		for (PackageLevels packageLevels : PackageLevels.values()) {
 			i++;
 			System.out.println(packageLevels.packageInfo());
