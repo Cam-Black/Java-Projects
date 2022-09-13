@@ -16,18 +16,28 @@ public enum PackageLevels {
 	}
 	
 	public String packageInfo() {
-		return this.name() + "[Number of Courses included: " + this.numOfIncludedCourses + ", Package price: $" +
+		return this.name() + " - Number of Courses included: " + this.numOfIncludedCourses + ", Package price: $" +
 				String.format("%.2f", this.packagePrice) + ", Additional course cost: $" +
 				String.format("%.2f", this.additionalCourseCost);
 	}
 	
 	public static void printPackages() {
+		int i = 0;
 		for (PackageLevels packageLevels : PackageLevels.values()) {
+			i++;
 			System.out.println(packageLevels.packageInfo());
 		}
 	}
 	
+	public double getPackagePrice() {
+		return this.packagePrice;
+	}
+	
 	public int getNumOfIncludedCourses() {
 		return this.numOfIncludedCourses;
+	}
+	
+	public double getAdditionalCourseCost() {
+		return this.additionalCourseCost;
 	}
 }
