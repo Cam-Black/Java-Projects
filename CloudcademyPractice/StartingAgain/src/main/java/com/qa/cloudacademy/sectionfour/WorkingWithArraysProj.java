@@ -14,7 +14,7 @@ public class WorkingWithArraysProj {
 		while (i < nums.length) {
 			System.out.print("Enter an integer:\t");
 			nums[i] = s.nextInt();
-//			s.nextLine();
+			s.nextLine();
 			i++;
 		}
 		for (int num : nums) {
