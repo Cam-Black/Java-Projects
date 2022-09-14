@@ -10,12 +10,11 @@ public class WorkingWithArraysProj {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in); //Create new scanner obj for user input
 		Integer[] nums = new Integer[5];
-		int i = 0;
-		while (i < nums.length) {
+
+		for(int i = 0; i < nums.length; i++) {
 			System.out.print("Enter an integer:\t");
 			nums[i] = s.nextInt();
 			s.nextLine();
-			i++;
 		}
 		for (int num : nums) {
 			System.out.println(num + " * 2" + " = " + (num * 2));
