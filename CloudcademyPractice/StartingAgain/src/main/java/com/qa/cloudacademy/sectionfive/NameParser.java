@@ -12,8 +12,8 @@ public class NameParser {
 		System.out.println("What is your name?");
 		name = s.nextLine();
 		
-		firstName = name.substring(0, name.indexOf(' '));
-		lastName = name.substring(name.indexOf(' '));
+		firstName = name.substring(0, name.indexOf(" "));
+		lastName = name.substring(name.indexOf(" "));
 		
 		System.out.println("First name: " + firstName.toUpperCase());
 		System.out.println("Last name: " + lastName.toLowerCase());
