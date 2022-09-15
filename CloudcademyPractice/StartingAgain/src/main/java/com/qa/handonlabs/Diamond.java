@@ -1,29 +1,40 @@
 package com.qa.handonlabs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Diamond {
-	public List<String> printToList(char a) {
-		List<String> diamondArr = new ArrayList<>();
-		int counter;
-		switch (a) {
-			case 'A':
-				counter = 1;
-				break;
-			case 'B':
-				counter = 2;
-				break;
-			case 'Z':
-				counter = 26;
-				break;
-			default:
-				counter = 0;
+	String printToList(char a) {
+		StringBuilder sb = new StringBuilder();
+		int valueOfChar = a;
+		int valueOfA = Character.valueOf('A');
+		
+		if (valueOfA == valueOfChar) {
+			sb.append(Character.valueOf((char) valueOfChar));
+			return sb.toString();
 		}
-		for (Integer i = 0; i < counter; i++) {
-			String space = " ";
-			diamondArr.add(space + "A");
+		
+		for (int i = valueOfA; i <= valueOfChar; i++) {
+			char letter = Character.valueOf((char) i);
+			
+			if (i == valueOfA) {
+				sb.append(letter + "\n");
+			} else {
+				sb.append("" + letter + " " + letter + "\n");
+			}
+			
 		}
-		return diamondArr;
+		
+		for (int i = valueOfChar - 1; i >= valueOfA; i--) {
+			char letter = Character.valueOf((char) i);
+			if (i == valueOfA) {
+				sb.append(letter + "\n");
+			} else {
+				sb.append("" + letter + " " + letter + "\n");
+			}
+		}
+		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		Diamond d = new Diamond();
+		System.out.println(d.printToList('C'));
 	}
 }
