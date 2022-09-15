@@ -13,10 +13,10 @@ public class NameParser {
 		name = s.nextLine();
 		
 		firstName = name.substring(0, name.indexOf(" "));
-		lastName = name.substring(name.indexOf(" "));
+		lastName = name.substring(name.indexOf(" ")+1);
 		
-		System.out.println("First name: " + firstName.toUpperCase());
-		System.out.println("Last name: " + lastName.toLowerCase());
+		System.out.println("First name is " + firstName.toUpperCase());
+		System.out.println("Last name is " + lastName.toLowerCase());
 	}
 	
 	
