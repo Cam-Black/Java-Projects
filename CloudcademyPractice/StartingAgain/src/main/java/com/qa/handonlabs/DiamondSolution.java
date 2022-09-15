@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 final class DiamondSolution {
-	private static final int A_INT = (int) 'A';
+	private static final int A_INT = 'A';
 	private static String blank(final int length) {
 		return String.join("", Collections.nCopies(length, " "));
 	}
