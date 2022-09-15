@@ -25,10 +25,7 @@ public class NamePermutations {
 			forenames.add(name.substring(0, name.indexOf(" ")));
 			surnames.add(name.substring(name.indexOf(" ") + 1));
 		}
-		for (String forename : forenames) {
-			for (String surname : surnames) {
-				System.out.println(forename + " " + surname);
-			}
-		}
+
+		forenames.stream().forEach((el) -> surnames.forEach((el2) -> System.out.println(el + " " + el2)));
 	}
 }
