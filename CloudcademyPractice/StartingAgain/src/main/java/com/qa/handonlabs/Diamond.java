@@ -1,23 +1,27 @@
 package com.qa.handonlabs;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Diamond {
-	String printToList(char a) {
-		StringBuilder sb = new StringBuilder();
+	List<String> printToList(char a) {
+		List<String> sb = new ArrayList<>();
 		int valueOfChar = a;
 		int valueOfA = Character.valueOf('A');
 		
 		if (valueOfA == valueOfChar) {
-			sb.append(Character.valueOf((char) valueOfChar));
-			return sb.toString();
+//			sb.add(Character.valueOf((char) valueOfChar));
+			return sb;
 		}
 		
 		for (int i = valueOfA; i <= valueOfChar; i++) {
 			char letter = Character.valueOf((char) i);
 			
 			if (i == valueOfA) {
-				sb.append(letter + "\n");
+				sb.add(letter + "\n");
 			} else {
-				sb.append("" + letter + " " + letter + "\n");
+				sb.add("" + letter + " " + letter + "\n");
 			}
 			
 		}
@@ -25,12 +29,12 @@ public class Diamond {
 		for (int i = valueOfChar - 1; i >= valueOfA; i--) {
 			char letter = Character.valueOf((char) i);
 			if (i == valueOfA) {
-				sb.append(letter + "\n");
+				sb.add(letter + "\n");
 			} else {
-				sb.append("" + letter + " " + letter + "\n");
+				sb.add("" + letter + " " + letter + "\n");
 			}
 		}
-		return sb.toString();
+		return sb;
 	}
 	
 	public static void main(String[] args) {
