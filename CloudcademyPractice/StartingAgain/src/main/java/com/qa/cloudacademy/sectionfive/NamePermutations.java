@@ -1,7 +1,5 @@
 package com.qa.cloudacademy.sectionfive;
 
-import com.qa.cloudacademy.sectionthree.learningpackage.PackageLevels;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,6 +24,6 @@ public class NamePermutations {
 			surnames.add(name.substring(name.indexOf(" ") + 1));
 		}
 
-		forenames.stream().forEach((el) -> surnames.forEach((el2) -> System.out.println(el + " " + el2)));
+		forenames.forEach((el) -> surnames.forEach((el2) -> System.out.println(el + " " + el2)));
 	}
 }
