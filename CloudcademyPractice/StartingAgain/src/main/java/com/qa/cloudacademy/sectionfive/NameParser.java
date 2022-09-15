@@ -9,7 +9,14 @@ public class NameParser {
 		String firstName;
 		String lastName;
 		
+		System.out.println("What is your name?");
+		name = s.nextLine();
 		
+		firstName = name.substring(0, name.indexOf(' '));
+		lastName = name.substring(name.indexOf(' '));
+		
+		System.out.println("First name: " + firstName);
+		System.out.println("Last name: " + lastName);
 	}
 	
 	
