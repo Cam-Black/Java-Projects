@@ -6,17 +6,18 @@ import java.util.Random;
 
 public class SumOfElements {
 	public static void main(String[] args) {
-		List<Integer> numList = createAndFillList(5);
-		printList(numList);
+		SumOfElements soe = new SumOfElements();
+		List<Integer> numList = soe.createAndFillList(5);
+		soe.printList(numList);
 		System.out.println();
-		System.out.println(sumElements(numList));
+		System.out.println(soe.sumElements(numList));
 	}
 	
-	public static int sumElements(List<Integer> numList) {
+	public int sumElements(List<Integer> numList) {
 		return numList.stream().reduce(Integer::sum).get();
 	}
 	
-	public static List<Integer> createAndFillList(int listSize) {
+	public List<Integer> createAndFillList(int listSize) {
 		List<Integer> nums = new ArrayList<>();
 		Random rand = new Random();
 		for (int i = 0; i < listSize; i++) {
@@ -25,7 +26,7 @@ public class SumOfElements {
 		return nums;
 	}
 	
-	public static void printList(List<Integer> numList) {
+	public void printList(List<Integer> numList) {
 		numList.forEach(System.out::println);
 	}
 }
