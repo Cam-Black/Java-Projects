@@ -6,6 +6,6 @@ public class MethodsDemo {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(MethodsDemo.squareADouble(10));
+		System.out.println(squareADouble(10));
 	}
 }
