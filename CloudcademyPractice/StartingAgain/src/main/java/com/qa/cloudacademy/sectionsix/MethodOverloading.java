@@ -6,7 +6,10 @@ public class MethodOverloading {
 	public static final Scanner SCAN = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		System.out.println(getResult(2, "d"));
+//		System.out.println(getResult(2, "5"));
+//		System.out.println(getResult("Hello", "World"));
+		
+		countUp(1, 1000);
 	}
 	
 	
@@ -32,5 +35,21 @@ public class MethodOverloading {
 			}
 		}
 		return num + numFromString;
+	}
+	
+	static String getResult(String arg1, String arg2) {
+		return arg1 + " " + arg2;
+	}
+	
+	static void countUp(int start, int end) {
+		int swap;
+		if (start > end) {
+			swap = start;
+			start = end;
+			end = swap;
+		}
+		for (int i = start; i <= end; i++) {
+			System.out.println(i);
+		}
 	}
 }
