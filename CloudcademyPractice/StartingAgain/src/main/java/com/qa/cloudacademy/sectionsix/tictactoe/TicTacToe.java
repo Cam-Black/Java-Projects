@@ -1,44 +1,43 @@
 package com.qa.cloudacademy.sectionsix.tictactoe;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.function.Predicate;
 
 public class TicTacToe {
 	private final Scanner SCAN;
+	private List<String> positions = fillPositions();
 	
 	public TicTacToe() {
 		super();
 		SCAN = new Scanner(System.in);
 	}
 	
-	public String[][] createBoard() {
-		String[][] board = new String[6][3];
-		int k = 1;
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[i].length; j++) {
-				if (i % 2 == 0) {
-					board[i][j] = "----";
-				} else {
-					board[i][j] = "| " + k + " ";
-					k++;
-				}
-			}
+	public List<String> fillPositions() {
+		List<String> setPositions = new ArrayList<>();
+		for (Integer i = 1; i < 10; i++) {
+			setPositions.add(i.toString());
 		}
-		return board;
+		return setPositions;
 	}
 	
-	public void printBoard(String[][] board) {
-		for (String[] arr : board) {
-			for (String space : arr) {
-				System.out.print(space);
+	public void board() {
+		for (String value : positions) {
+			if (Integer.parseInt(value) % 3 == 0 && Integer.parseInt(value) != 9) {
+				System.out.print(" " + value + " \n");
+				System.out.println("---|---|---");
+			} else if (Integer.parseInt(value) == 9) {
+				System.out.print(" " + value + " \n");
+			} else {
+				System.out.print(" " + value + " |");
 			}
-			System.out.println();
 		}
+		System.out.println();
 	}
 	
-	public void userInput(String[][] board) {
-		String input = SCAN.nextLine();
-		Arrays.stream(board).forEach((el) -> el.equals(input) ? el[el] = "X" : null);
+	public void playerTurn() {
+		System.out.println("Enter a number that appears on the board:");
+		
 	}
+	
 }
