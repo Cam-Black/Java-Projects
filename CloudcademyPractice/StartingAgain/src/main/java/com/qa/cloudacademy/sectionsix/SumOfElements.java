@@ -6,8 +6,7 @@ import java.util.Random;
 
 public class SumOfElements {
 	public static void main(String[] args) {
-		List<Integer> numList = new ArrayList<>();
-		createAndFillList(5);
+		List<Integer> numList = createAndFillList(5);
 		printList(numList);
 		System.out.println();
 		System.out.println(sumElements(numList));
