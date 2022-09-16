@@ -1,6 +1,7 @@
 package com.qa.cloudacademy.sectionsix.tictactoe;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,28 +17,66 @@ public class TicTacToe {
 	public List<String> fillPositions() {
 		List<String> setPositions = new ArrayList<>();
 		for (Integer i = 1; i < 10; i++) {
-			setPositions.add(i.toString());
+			setPositions.add(String.valueOf(i));
 		}
 		return setPositions;
 	}
 	
 	public void board() {
-		for (String value : positions) {
-			if (Integer.parseInt(value) % 3 == 0 && Integer.parseInt(value) != 9) {
-				System.out.print(" " + value + " \n");
+		for (int i = 1; i < positions.size() + 1; i++) {
+			if (i % 3 == 0 && i != 9) {
+				System.out.print(" " + positions.get(i - 1) + " \n");
 				System.out.println("---|---|---");
-			} else if (Integer.parseInt(value) == 9) {
-				System.out.print(" " + value + " \n");
+			} else if (i == 9) {
+				System.out.print(" " + positions.get(i - 1) + " \n");
 			} else {
-				System.out.print(" " + value + " |");
+				System.out.print(" " + positions.get(i - 1) + " |");
 			}
 		}
 		System.out.println();
 	}
 	
 	public void playerTurn() {
-		System.out.println("Enter a number that appears on the board:");
-		
+		board();
+		String position;
+		do {
+			System.out.println("Enter a number on the board:");
+			position = SCAN.nextLine();
+		}
+		while (!getInput(position));
 	}
 	
+	public boolean getInput(String position) {
+		
+		try {
+			positions.set(Integer.parseInt(position) - 1, "X");
+			return true;
+		} catch (NumberFormatException | IndexOutOfBoundsException | InputMismatchException e) {
+			System.err.println(position + " is not a valid number on the board, try again!");
+			return false;
+		}
+	}
+	
+	public boolean isFull() {
+		return positions.stream().allMatch((el) -> el.equals("X") || el.equals("O"));
+	}
+	
+	public void playGame() {
+		boolean play = true;
+		String yOrN;
+		
+		while (play) {
+			while (!isFull()) {
+				playerTurn();
+			}//end !isFull While
+			SCAN.nextLine();
+			System.out.println("Would you like to play again? Y/N");
+			yOrN = SCAN.nextLine();
+			if (yOrN.equals("N")) {
+				play = false;
+			} else {
+				positions = fillPositions();
+			}
+		}//end play While
+	}
 }
