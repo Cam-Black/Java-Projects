@@ -39,7 +39,6 @@ public class TicTacToe {
 	}
 	
 	public void playerTurn() {
-		board();
 		String position;
 		do {
 			System.out.println("Enter a number on the board:");
@@ -50,15 +49,16 @@ public class TicTacToe {
 	}
 	
 	public void computerTurn() {
-		int position = (int) Math.floor(Math.random() * positions.size());
-		System.out.println("Computer turn: " + position);
-		
-		board();
+		int position;
+		do {
+			position = (int) Math.floor(Math.random() * positions.size());
+		} while (positions.get(position).equals("X") || positions.get(position).equals("O"));
+		positions.set(position, "O");
+		System.out.println("Computer turn: " + (position + 1));
 		player--;
 	}
 	
 	public void winner() {
-		board();
 		if (player == 1) {
 			System.out.println("Congratulations, you win");
 		} else if (player == 2) {
@@ -119,11 +119,12 @@ public class TicTacToe {
 	public void playGame() {
 		boolean play = true;
 		String yOrN;
-		
 		while (play) {
+			board();
 			while (!isFull() && !isWinner()) {
 				playerTurn();
 				computerTurn();
+				board();
 			}//end !isFull While
 			winner();
 			System.out.println("Would you like to play again? Y/N");
