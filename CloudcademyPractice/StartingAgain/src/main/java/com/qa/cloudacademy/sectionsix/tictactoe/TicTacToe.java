@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
 	private final Scanner SCAN;
+	
+	private int player = 1;
 	private List<String> positions = fillPositions();
 	
 	public TicTacToe() {
@@ -44,11 +46,36 @@ public class TicTacToe {
 			position = SCAN.nextLine();
 		}
 		while (!getInput(position));
+		player++;
+	}
+	
+	public void computerTurn() {
+		int position = (int) Math.floor(Math.random() * positions.size());
+		System.out.println("Computer turn: " + position);
+		
+		board();
+		player--;
+	}
+	
+	public void winner() {
+		board();
+		if (player == 1) {
+			System.out.println("Congratulations, you win");
+		} else if (player == 2) {
+			System.out.println("The computer won, unlucky!");
+		} else {
+			System.out.println("It's a tie");
+		}
 	}
 	
 	public boolean getInput(String position) {
 		
 		try {
+			if (positions.get(Integer.parseInt(position) - 1).equals("X") ||
+					positions.get(Integer.parseInt(position) - 1).equals("O")) {
+				System.out.println("There is already something there!");
+				return false;
+			}
 			positions.set(Integer.parseInt(position) - 1, "X");
 			return true;
 		} catch (NumberFormatException | IndexOutOfBoundsException | InputMismatchException e) {
@@ -61,15 +88,44 @@ public class TicTacToe {
 		return positions.stream().allMatch((el) -> el.equals("X") || el.equals("O"));
 	}
 	
+	public boolean isWinner() {
+		if (positions.get(0).equals(positions.get(1)) && positions.get(1).equals(positions.get(2))) {
+			return true;
+		}
+		if (positions.get(3).equals(positions.get(4)) && positions.get(4).equals(positions.get(5))) {
+			return true;
+		}
+		if (positions.get(6).equals(positions.get(7)) && positions.get(7).equals(positions.get(8))) {
+			return true;
+		}
+		if (positions.get(0).equals(positions.get(3)) && positions.get(3).equals(positions.get(6))) {
+			return true;
+		}
+		if (positions.get(1).equals(positions.get(4)) && positions.get(4).equals(positions.get(7))) {
+			return true;
+		}
+		if (positions.get(2).equals(positions.get(5)) && positions.get(5).equals(positions.get(8))) {
+			return true;
+		}
+		if (positions.get(0).equals(positions.get(4)) && positions.get(4).equals(positions.get(8))) {
+			return true;
+		}
+		if (positions.get(2).equals(positions.get(4)) && positions.get(4).equals(positions.get(6))) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void playGame() {
 		boolean play = true;
 		String yOrN;
 		
 		while (play) {
-			while (!isFull()) {
+			while (!isFull() && !isWinner()) {
 				playerTurn();
+				computerTurn();
 			}//end !isFull While
-			SCAN.nextLine();
+			winner();
 			System.out.println("Would you like to play again? Y/N");
 			yOrN = SCAN.nextLine();
 			if (yOrN.equals("N")) {
