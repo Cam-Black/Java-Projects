@@ -27,7 +27,7 @@ public class IceCream {
 	
 	public String getToppings() {
 		StringBuilder sb = new StringBuilder();
-		toppings.forEach((el) -> sb.append("\n\t" + el));
+		toppings.forEach((el) -> sb.append("\n\t").append(el));
 		return new String(sb);
 	}
 	
