@@ -1,39 +1,41 @@
 package com.qa.handonlabs;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-/*
-
-This exercise doesn't come with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
-
-*/
 public class Bob {
-	public static String hey(String message) {
-		String regex = "[0-9]";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(message);
-		String numsReplaced = m.replaceAll("");
-
-		String removeWhiteSpace = numsReplaced.trim();
-		System.out.println(removeWhiteSpace);
-		
-		if (removeWhiteSpace.isEmpty()) {
+	public String hey(String input) {
+		input = normalize(input);
+		if (input.isEmpty()) {
 			return "Fine. Be that way!";
-		} else if (removeWhiteSpace.equals(removeWhiteSpace.toUpperCase()) && removeWhiteSpace.endsWith("?")) {
-			return "Calm down, I know what I'm doing!";
-		} else if (removeWhiteSpace.endsWith("?")) {
-			return "Sure.";
-		} else if (removeWhiteSpace.equals(removeWhiteSpace.toUpperCase())) {
-			return "Whoa, chill out!";
-		} else {
-			return "Whatever.";
 		}
+		if (isShout(input) && isQuestion(input)) {
+			return "Calm down, I know what I'm doing!";
+		}
+		if (isShout(input)) {
+			return "Whoa, chill out!";
+		}
+		if (isQuestion(input)) {
+			return "Sure.";
+		}
+		return "Whatever.";
+	}
+	
+	private static String normalize(String input) {
+		return input.trim();
+	}
+	
+	private static boolean isShout(String input) {
+		final String upperCased = input.toUpperCase();
+		final String lowerCased = input.toLowerCase();
+		final boolean containsSomeLetters = !lowerCased.equals(upperCased);
+		final boolean isAllUpperCase = upperCased.equals(input);
+		return (containsSomeLetters && isAllUpperCase);
+	}
+	
+	private static boolean isQuestion(String input) {
+		return input.endsWith("?");
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(Bob.hey("   4?    "));
+		Bob bob = new Bob();
+		System.out.println(bob.hey(":) ?"));
 	}
 }
