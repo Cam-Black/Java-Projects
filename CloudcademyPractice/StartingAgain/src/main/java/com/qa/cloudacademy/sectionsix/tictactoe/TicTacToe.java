@@ -43,33 +43,11 @@ public class TicTacToe {
 		do {
 			System.out.println("Enter a number on the board:");
 			position = SCAN.nextLine();
-		}
-		while (!getInput(position));
-		player++;
-	}
-	
-	public void computerTurn() {
-		int position;
-		do {
-			position = (int) Math.floor(Math.random() * positions.size());
-		} while (positions.get(position).equals("X") || positions.get(position).equals("O"));
-		positions.set(position, "O");
-		System.out.println("Computer turn: " + (position + 1));
-		player--;
-	}
-	
-	public void winner() {
-		if (player == 1) {
-			System.out.println("Congratulations, you win");
-		} else if (player == 2) {
-			System.out.println("The computer won, unlucky!");
-		} else {
-			System.out.println("It's a tie");
-		}
+		} while (!getInput(position));
+		checkIsWinnerOrFull();
 	}
 	
 	public boolean getInput(String position) {
-		
 		try {
 			if (positions.get(Integer.parseInt(position) - 1).equals("X") ||
 					positions.get(Integer.parseInt(position) - 1).equals("O")) {
@@ -81,6 +59,44 @@ public class TicTacToe {
 		} catch (NumberFormatException | IndexOutOfBoundsException | InputMismatchException e) {
 			System.err.println(position + " is not a valid number on the board, try again!");
 			return false;
+		}
+	}
+	
+	public void computerTurn() {
+		if (!isWinner() && !isFull()) {
+			int position;
+			do {
+				position = (int) Math.floor(Math.random() * positions.size());
+			} while (positions.get(position).equals("X") || positions.get(position).equals("O"));
+			positions.set(position, "O");
+			System.out.println("Computer turn: " + (position + 1));
+			checkIsWinnerOrFull();
+		}
+	}
+	
+	public void changePlayer() {
+		if (player == 1) {
+			player++;
+		} else if (player == 2) {
+			player--;
+		}
+	}
+	
+	public void checkIsWinnerOrFull() {
+		if (isWinner()) {
+			if (player == 1) {
+				board();
+				System.out.println("Congratulations, you win");
+			} else if (player == 2) {
+				board();
+				System.out.println("The computer won, unlucky!");
+			}
+		} else if (isFull()) {
+			board();
+			System.out.println("It's a tie!");
+		} else {
+			board();
+			changePlayer();
 		}
 	}
 	
@@ -124,12 +140,10 @@ public class TicTacToe {
 			while (!isFull() && !isWinner()) {
 				playerTurn();
 				computerTurn();
-				board();
 			}//end !isFull While
-			winner();
 			System.out.println("Would you like to play again? Y/N");
 			yOrN = SCAN.nextLine();
-			if (yOrN.equals("N")) {
+			if (yOrN.equalsIgnoreCase("N")) {
 				play = false;
 			} else {
 				positions = fillPositions();
