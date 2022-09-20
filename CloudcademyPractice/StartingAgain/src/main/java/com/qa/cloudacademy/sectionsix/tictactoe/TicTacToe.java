@@ -107,29 +107,21 @@ public class TicTacToe {
 	public boolean isWinner() {
 		if (positions.get(0).equals(positions.get(1)) && positions.get(1).equals(positions.get(2))) {
 			return true;
-		}
-		if (positions.get(3).equals(positions.get(4)) && positions.get(4).equals(positions.get(5))) {
+		}else if (positions.get(3).equals(positions.get(4)) && positions.get(4).equals(positions.get(5))) {
 			return true;
-		}
-		if (positions.get(6).equals(positions.get(7)) && positions.get(7).equals(positions.get(8))) {
+		} else if (positions.get(6).equals(positions.get(7)) && positions.get(7).equals(positions.get(8))) {
 			return true;
-		}
-		if (positions.get(0).equals(positions.get(3)) && positions.get(3).equals(positions.get(6))) {
+		} else if (positions.get(0).equals(positions.get(3)) && positions.get(3).equals(positions.get(6))) {
 			return true;
-		}
-		if (positions.get(1).equals(positions.get(4)) && positions.get(4).equals(positions.get(7))) {
+		} else if (positions.get(1).equals(positions.get(4)) && positions.get(4).equals(positions.get(7))) {
 			return true;
-		}
-		if (positions.get(2).equals(positions.get(5)) && positions.get(5).equals(positions.get(8))) {
+		} else  if (positions.get(2).equals(positions.get(5)) && positions.get(5).equals(positions.get(8))) {
 			return true;
-		}
-		if (positions.get(0).equals(positions.get(4)) && positions.get(4).equals(positions.get(8))) {
+		} else  if (positions.get(0).equals(positions.get(4)) && positions.get(4).equals(positions.get(8))) {
 			return true;
+		} else {
+			return positions.get(2).equals(positions.get(4)) && positions.get(4).equals(positions.get(6));
 		}
-		if (positions.get(2).equals(positions.get(4)) && positions.get(4).equals(positions.get(6))) {
-			return true;
-		}
-		return false;
 	}
 	
 	public void playGame() {
