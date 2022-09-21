@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class FileInputFun {
 	public static void main(String[] args) {
 		Scanner s;
-		int i = 1;
 		
 		try {
 			s = new Scanner(new File("./src/main/resources/file.txt"));
