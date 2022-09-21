@@ -12,11 +12,14 @@ public class FileInputFun {
 		
 		try {
 			s = new Scanner(new File("./src/main/resources/file.txt"));
-			int input = 0;
+			int input;
+			int sum = 0;
 			while (s.hasNext()) {
-				input += s.nextInt();
+				input = s.nextInt();
+				System.out.println(input);
+				sum += input;
 			}
-			System.out.println("Sum of all numbers in file = " + input);
+			System.out.println("Sum = " + sum);
 			
 		} catch (FileNotFoundException fnfe) {
 			System.err.println("Can't find file:");
