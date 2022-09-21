@@ -14,14 +14,13 @@ public class FileOutputFun {
 			
 			pw.println("Hello There!");
 			pw.println("My name is Cameron Black");
-			s = new Scanner(new File("./src/main/resources/output.txt"));
+			pw.close();
 			
+			s = new Scanner(new File("./src/main/resources/output.txt"));
 			while (s.hasNext()) {
 				output = s.nextLine();
 				System.out.println(output);
 			}
-			pw.close();
-			
 		} catch (FileNotFoundException fnfe) {
 			System.err.println("File not found:");
 			System.err.println(fnfe.getMessage());
