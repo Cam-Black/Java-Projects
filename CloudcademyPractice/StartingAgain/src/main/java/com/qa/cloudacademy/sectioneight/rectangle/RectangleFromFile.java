@@ -27,8 +27,11 @@ public class RectangleFromFile {
 				Rectangle rec = new Rectangle(tempLength, tempWidth);
 				rectangles.add(rec);
 			}
-		} catch (FileNotFoundException | InputMismatchException e) {
-			System.err.println(e.getMessage());
+		} catch (FileNotFoundException fnfe) {
+			System.err.println("File not found:");
+			System.err.println(fnfe.getMessage());
+		} catch (InputMismatchException ime) {
+			System.err.println("Not a valid number");
 		}
 		return rectangles;
 	}
