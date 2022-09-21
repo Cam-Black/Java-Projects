@@ -12,17 +12,17 @@ public class FileInputFun {
 		
 		try {
 			s = new Scanner(new File("./src/main/resources/file.txt"));
-			int input;
+			int input = 0;
 			while (s.hasNext()) {
-				input = s.nextInt();
-				System.out.println(i + " - " + input);
-				i++;
+				input += s.nextInt();
 			}
+			System.out.println("Sum of all numbers in file = " + input);
+			
 		} catch (FileNotFoundException fnfe) {
 			System.err.println("Can't find file:");
 			System.err.println(fnfe.getMessage());
 		} catch (InputMismatchException ime) {
-			System.err.println(i + " - Not a valid Integer!");
+			System.err.println("Not a valid Integer!");
 		}
 	}
 }
