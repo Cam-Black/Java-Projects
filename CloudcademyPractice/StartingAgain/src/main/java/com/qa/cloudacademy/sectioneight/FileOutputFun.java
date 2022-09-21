@@ -13,7 +13,7 @@ public class FileOutputFun {
 			PrintWriter pw = new PrintWriter("./src/main/resources/output.txt");
 			
 			pw.println("Hello There!");
-			pw.println("My name is Cameron Black");
+			pw.println("General Kenobi!");
 			pw.close();
 			
 			s = new Scanner(new File("./src/main/resources/output.txt"));
