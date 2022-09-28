@@ -1,4 +1,4 @@
-package com.qa.handonlabs;
+package com.qa.handsonlabs;
 
 /*
 

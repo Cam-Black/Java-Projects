@@ -1,6 +1,5 @@
 package com.qa.handsonlabs;
 
-import com.qa.handonlabs.BeerSong;
 import org.junit.Test;
 import org.junit.Before;
 

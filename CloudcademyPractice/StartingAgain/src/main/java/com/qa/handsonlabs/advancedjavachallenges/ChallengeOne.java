@@ -1,4 +1,4 @@
-package com.qa.handonlabs.advancedjavachallenges;
+package com.qa.handsonlabs.advancedjavachallenges;
 
 public class ChallengeOne {
 	public static String[] fruitColors(Fruit[] fruits) {

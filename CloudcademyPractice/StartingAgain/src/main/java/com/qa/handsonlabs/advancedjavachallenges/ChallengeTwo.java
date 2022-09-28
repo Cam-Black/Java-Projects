@@ -1,4 +1,4 @@
-package com.qa.handonlabs.advancedjavachallenges;
+package com.qa.handsonlabs.advancedjavachallenges;
 
 import java.util.ArrayList;
 import java.util.List;

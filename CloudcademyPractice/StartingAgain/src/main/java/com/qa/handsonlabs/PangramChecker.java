@@ -1,7 +1,6 @@
-package com.qa.handonlabs;
+package com.qa.handsonlabs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 

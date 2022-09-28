@@ -1,4 +1,4 @@
-package com.qa.handonlabs;
+package com.qa.handsonlabs;
 
 public class Bob {
 	public String hey(String input) {
