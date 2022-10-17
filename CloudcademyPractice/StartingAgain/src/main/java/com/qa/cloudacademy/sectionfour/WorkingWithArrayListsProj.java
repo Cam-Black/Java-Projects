@@ -5,7 +5,7 @@ import java.util.*;
 public class WorkingWithArrayListsProj {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		List nums = new ArrayList<>();
+		List<Double> nums = new ArrayList<>();
 		double userNum;
 		do {
 			System.out.println("Enter a negative integer to exit");
@@ -21,6 +21,6 @@ public class WorkingWithArrayListsProj {
 //			System.out.println(nums.get(i));
 //		}
 		//Reverse and print order using a stream.
-		nums.stream().sorted(Collections.reverseOrder()).forEach((el) -> System.out.println(el));
+		nums.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
 	}
 }
